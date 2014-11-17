@@ -1,0 +1,33 @@
+'use strict';
+
+angular.module('todoApp')
+  .controller('TasksController', ['$scope', 'Task', function($scope, Task){
+    $scope.tasks = Task.query();
+
+    $scope.done = function (task) {
+      Task.done({id: task.id}, function (_task) {
+        task.done_at = _task.done_at;
+      });
+    };
+
+    $scope.add = function () {
+      Task.save($scope.task, function (_task) {
+        $scope.tasks.push(_task);
+        $scope.task.name = null;
+      });
+    };
+
+    $scope.remove = function ($event, task) {
+      $event.stopPropagation();
+      Task.remove({id: task.id}, function () {
+        $scope.tasks = _.filter($scope.tasks, function (_t) {
+          return _t.id != task.id;
+        });
+      });
+    };
+
+    $scope.hover = function (task) {
+      return task.showDelete = !task.showDelete;
+    };
+  }])
+;

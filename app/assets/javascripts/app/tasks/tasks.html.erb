@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <!-- Add Todo -->
+    <form ng-submit="add()" style="margin-bottom: 12px">
+      <div class="input-group">
+        <input class="form-control" type="text" ng-model="task.name" />
+        <div class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-plus"></i></button></div>
+      </div>
+    </form>
+
+    <!--Todo List -->
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        やらなきゃいけないリスト
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item task-item" ng-repeat="task in tasks | orderBy: ['done_at', 'created_at']" ng-mouseenter="hover(task)" ng-mouseleave="hover(task)" ng-click="done(task)">
+          <div ng-class="{ done: task.done_at }">{{task.name}}</div>
+          <div ng-show="task.showDelete" style="float: right; margin-top: -25px;">
+            <button class="btn btn-danger btn-sm" ng-click="remove($event, task)"><i class="fa fa-trash-o"></i></button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

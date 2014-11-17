@@ -1,0 +1,20 @@
+'use strict';
+
+angular.module('todoApp', [
+  'ngResource',
+  'ui.router',
+  'ui.bootstrap'
+])
+  .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider
+      .otherwise('/');
+
+    $stateProvider
+      .state('tasks', {
+        url: '/',
+        templateUrl: '<%= asset_path 'app/tasks/tasks.html' %>',
+        controller: 'TasksController'
+      })
+    ;
+  }])
+;
