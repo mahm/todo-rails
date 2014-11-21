@@ -9,7 +9,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'enumerize'
 gem 'inherited_resources'
 gem 'has_scope'
-gem 'acts_as_list'
 gem 'devise'
 
 # css

@@ -27,8 +27,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    acts_as_list (0.5.0)
-      activerecord (>= 3.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bootstrap-sass (3.3.1.0)
@@ -146,7 +144,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_list
   bootstrap-sass
   bower-rails (~> 0.9.1)
   coffee-rails (~> 4.0.0)
